@@ -1,7 +1,7 @@
 # Registration and Login System
 
 ## Overview
-This project is a simple web-based registration and login system built using HTML, JavaScript, and PHP. It allows users to register for an account and log in using their email and password. The system checks for email uniqueness during registration and verifies user passwords during login.
+This project is a simple web-based registration and login system built using HTML, JavaScript, and PHP. It allows users to register for an account and log in using their email and password. The system checks for email uniqueness during registration and verifies user passwords during login then save all data in database
 
 ![image](https://github.com/SaadElDine/Login-and-Registration-Website/assets/113860522/dce9b9be-28b9-403a-96a5-2035690b54b8)
 
