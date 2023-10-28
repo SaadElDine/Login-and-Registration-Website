@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+                Registration Form
+        </title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script>
+            // JavaScript validation
+            
+            function Validate()  {
+                var username = document.getElementById("usrnm").value;
+                var password = document.getElementById("psw").value;
+                var cpassword = document.getElementById("cpsw").value;
+                var email = document.getElementById("email").value;
+                // Validate username and password are not empty
+                if (username.trim() == "" ) {
+                    alert("Username is required!");
+                return false;
+                }
+                if (email.trim() == "" ) {
+                    alert("Email is required!");
+                return false;
+                }
+                if (password.trim() == "" ) {
+                    alert("Password field is required!");
+                
+                return false;
+                }
+                if (cpassword.trim() == "" ) {
+                    alert("Please confirm your password!");
+                
+                return false;
+                }
+                
+                if (password !== cpassword) {
+                    alert("Password and Confirmed password do not match.");
+                    return false;
+                }
+                // Validate email format
+                var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (!email.match(emailPattern)) {
+                    alert("Please enter a valid email address.");
+                    return false;
+                }
+            };
+
+            function showpsw() {
+                var passwordField = document.getElementById("psw");
+                var confirmPasswordField = document.getElementById("cpsw");
+                
+                if (passwordField.type === "password") {
+                    passwordField.type = "text";
+                    confirmPasswordField.type = "text";
+                } else {
+                    passwordField.type = "password";
+                    confirmPasswordField.type = "password";
+                }
+            }
+
+            function showHint(str) {
+                if (str.length == 0) {
+                    document.getElementById("txtHint").innerHTML = "";
+                    return;
+                } else {
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            console.log("Response received: " + this.responseText);
+                            document.getElementById("txtHint").innerHTML = this.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "gethint.php?q=" + str, true);
+                    xmlhttp.send();
+                }
+            }
+
+        </script>
+
+        <style>
+            * {
+                box-sizing: border-box;
+                margin : 0;
+                padding: 0;
+            }
+
+            .banner {
+                width: 100%;
+                height: 100%;
+                background-image: url(back.jpg);
+                background-size: cover;
+                background-position: center;
+                position: relative;
+            }
+
+            /* Add padding to containers */
+            
+            .container {
+                padding: 16px;
+            }
+
+            .input-container {
+                display: flex;
+                width: 100%;
+                margin-bottom: 15px;
+                margin-left: 510px;
+            }
+
+            .icon {
+                padding: 10px;
+                background: dodgerblue;
+                color: white;
+                min-width: 50px;
+                text-align: center;
+                border-radius: 10%;
+            }
+
+            /* Style the input fields */
+            .input-field {
+                align-items: center;
+                width: 30%;
+                padding: 15px;
+                outline: none;
+                display: inline-block;
+                background: #f1f1f1;
+            }
+
+            .input-field:focus {
+                border: 2px solid black;
+                background-color: dodgerblue;
+                outline: none;
+                color: black;
+            }
+
+            /* Overwrite default styles of hr */
+            hr {
+                border: 10px  #f1f1f1;
+                margin-bottom: 25px;
+            }
+
+            /* Set a style for the submit/register button */
+            .registerbtn {
+                background-color:dodgerblue;
+                color: white;
+                padding: 16px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 30%;
+                opacity: 0.9;
+                margin-left: 530px;
+                border-radius: 25px;
+                font-weight: bold;
+                font-size: medium;
+                position: relative;
+                overflow: hidden;
+                margin-bottom: 0;
+            }
+
+            .registerbtn:hover span {
+                width: 100%;
+            }
+
+            .registerbtn span{
+                background: white;
+                height: 100%;
+                width: 0;
+                border-radius: 25px;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                z-index: -1;
+                transition: 0.5s;
+            }
+
+            .registerbtn:hover {
+                border: none;
+                color: dodgerblue;
+            }
+
+            /* Add a blue text color to links */
+            a {
+                color: dodgerblue;
+            }
+
+            .signin {
+                background-color: transparent;
+                text-align: center;
+                width: 100%;
+                color: #f1f1f1;
+            }
+            
+            .A1{
+                text-align: center;
+                color: #f1f1f1;
+                margin-left: 35px;
+            }
+            .A2{
+                width: 10%;
+                height: auto;
+                border-radius: 10%;
+                margin: 25px;
+                opacity: 0.3;
+            }
+            .A3{
+                color: #f1f1f1;
+                margin-left: 510px;
+            }
+            .A4{
+                text-align: center;
+                color: #f1f1f1;
+            }
+            .A5 {
+                position: relative;
+                margin-top: 15px;
+                color: #f1f1f1;
+                margin-left: 10px;
+            }
+
+            .A5 span {
+                position: absolute;
+                left: 100%;
+                bottom: -5px; /* Adjust the bottom position to align the suggestions with the input field */
+                width: auto; /* Adjust the width to fit the suggestions content */
+                color: dodgerblue;
+                background: transparent;
+                border-radius: 5px;
+                margin-left: 5px; /* Adjust the margin to position the suggestions */
+                z-index: 1;
+                transition: 0.5s;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="banner">
+            <img src="logo.png" alt="logo" class="A2">
+            <h1 class="A1">Welcome To Faculty Of Engineering</h1>
+            <h2 class="A1">Alexandria University</h2>
+            <br><br>
+            <form id= "registrationForm" action="Registration.php" method="post">
+                <div class="container">
+                
+                    <div class="input-container" >
+                        <i class="fa fa-user icon"></i>
+                        <input class="input-field" type="text" placeholder="Username" id="usrnm" name="usrnm" onkeyup="showHint(this.value)" required>
+                        <div class="A5">
+                            <p>Suggestions: <span id="txtHint"></span></p>
+                        </div> 
+                    </div>
+
+                    <div class="input-container">
+                        <i class="fa fa-envelope icon"></i>
+                        <input class="input-field" type="text" placeholder="Email" id="email" name="email" required>
+                    </div>
+                
+                    <div class="input-container">
+                        <i class="fa fa-key icon"></i>
+                        <input class="input-field" type="password" placeholder="Password" id="psw" name="psw" required> 
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-key icon"></i>
+                        <input class="input-field" type="password" placeholder="Confim Password" id="cpsw" name="cpsw" required> 
+                    </div>
+                    <div class="A3">
+                        <input type="checkbox" onclick="showpsw()">Show Password
+                    </div>
+                    <br><br>
+                    <p class="A4">By creating an account you agree to our <a href="accept.html">Terms & Privacy</a>.</p>
+                    <button type="submit" class="registerbtn" onclick="return Validate();"><span></span>Register</button>
+                </div>
+                
+                <div class="container signin">
+                    <p>Already have an account? <a href="login.html">Sign in</a>.</p>
+                </div>
+                
+            </form>
+        </div>
+    </body>
+</html> 
+`

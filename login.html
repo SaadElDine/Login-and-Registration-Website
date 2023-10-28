@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+                Registration Form
+        </title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script>
+            // JavaScript validation
+            function Validate()  {
+                var password = document.getElementById("pswin").value;
+                var email = document.getElementById("emailin").value;
+                // Validate username and password are not empty
+            
+                if (email.trim() == "" ) {
+                    alert("Email is required!");
+                return false;
+                }
+                if (password.trim() == "" ) {
+                    alert("Password field is required!");
+                
+                return false;
+                }
+            };
+
+            function showpsw() {
+                var passwordField = document.getElementById("pswin");
+                if (passwordField.type === "password") {
+                    passwordField.type = "text";
+                } else {
+                    passwordField.type = "password";
+                }
+            }
+
+        </script>
+
+        <style>
+            * {
+                box-sizing: border-box;
+                margin : 0;
+                padding: 0;
+            }
+
+            .banner {
+                width: 100%;
+                height: 100%;
+                background-image: url(back.jpg);
+                background-size: cover, contain;
+                background-position: center;
+                position: relative;
+            }
+
+            /* Add padding to containers */
+            
+            .container {
+                padding: 16px;
+            }
+
+            .input-container {
+                display: flex;
+                width: 100%;
+                margin-bottom: 15px;
+                margin-left: 510px;
+            }
+
+            .icon {
+                padding: 10px;
+                background: dodgerblue;
+                color: white;
+                min-width: 50px;
+                text-align: center;
+                border-radius: 10%;
+            }
+
+            /* Style the input fields */
+            .input-field {
+                align-items: center;
+                width: 30%;
+                padding: 15px;
+                outline: none;
+                display: inline-block;
+                background: #f1f1f1;
+            }
+
+            .input-field:focus {
+                border: 2px solid dodgerblue;
+                background-color: #ddd;
+                outline: none;
+            }
+
+            /* Overwrite default styles of hr */
+            hr {
+                border: 10px  #f1f1f1;
+                margin-bottom: 25px;
+            }
+
+            /* Set a style for the submit/register button */
+            .registerbtn {
+                background-color:dodgerblue;
+                color: white;
+                padding: 16px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 30%;
+                opacity: 0.9;
+                margin-left: 530px;
+                border-radius: 25px;
+                font-weight: bold;
+                font-size: medium;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .registerbtn:hover span {
+                width: 100%;
+            }
+
+            .registerbtn:hover {
+                border: none;
+                color: dodgerblue;
+            }
+
+            /* Add a blue text color to links */
+            a {
+                color: dodgerblue;
+            }
+
+            .signin {
+                background-color: transparent;
+                text-align: center;
+                width: 100%;
+                color: #f1f1f1;
+            }
+            
+            .A1{
+                text-align: center;
+                color: #f1f1f1;
+                
+            }
+            .A{
+                text-align: center;
+                color: #f1f1f1;
+                margin-bottom: 100px;
+            }
+            .A2{
+                width: 10%;
+                height: auto;
+                border-radius: 10%;
+                margin: 25px;
+                opacity: 0.3;
+            }
+            .A3{
+                color: #f1f1f1;
+                margin-left: 510px;
+            }
+            .A4{
+                text-align: center;
+                color: #f1f1f1;
+            }
+            span{
+                background: white;
+                height: 100%;
+                width: 0;
+                border-radius: 25px;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                z-index: -1;
+                transition: 0.5s;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="banner">
+            <img src="logo.png" alt="logo" class="A2">
+            <h1 class="A1">Welcome To Faculty Of Engineering</h1>
+            <h2 class="A">Alexandria University</h2>
+            <br><br>
+            <form id= "registration" action="loginn.php" method="post">
+                <div class="container">
+
+                    <div class="input-container">
+                        <i class="fa fa-envelope icon"></i>
+                        <input class="input-field" type="text" placeholder="Email" id="emailin" name="emailin" required>
+                    </div>
+        
+                    <div class="input-container">
+                        <i class="fa fa-key icon"></i>
+                        <input class="input-field" type="password" placeholder="Password" id="pswin" name="pswin" required> 
+                    </div>
+        
+                    <div class="A3">
+                        <input type="checkbox" onclick="showpsw()">Show Password
+                    </div>
+                    <br><br>
+                    <button type="submit" class="registerbtn" onclick="return Validate();"><span></span>Login</button>
+                </div>
+                
+                <div class="container signin">
+                    <p>Don't have an account? <a href="Home.html">Sign up</a>.</p>
+                </div>
+            
+            </form>
+        </div>
+    </body>
+</html>
