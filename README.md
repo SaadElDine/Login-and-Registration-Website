@@ -44,9 +44,3 @@ This project is a simple web-based registration and login system built using HTM
 
 6. Access the login form by opening `login.html` in a web browser.
    - Login: http://localhost/your-project-folder/login.html
-
-## Acknowledgments
-- Special thanks to the authors of the third-party resources used in this project (e.g., Font Awesome).
-- Inspiration and guidance from various online tutorials and documentation.
-
-Happy coding!
